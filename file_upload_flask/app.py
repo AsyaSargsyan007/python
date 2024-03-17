@@ -8,6 +8,11 @@ def home():
 
 @app.route('/upload', methods=['GET','POST'])
 def upload():
+    if request.method == 'POST':
+       uploaded_file = request.files['file']
+       uploaded_file.save('file_upload_flask/uploaded_files/'+uploaded_files.filename)
+    return 'Файл сохранён!'
+
     return render_template('upload.html')
 
 
